@@ -17,7 +17,7 @@
             <ul class="navbar">
                 <li class="navbar-brand">
                     <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256">
                             <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path></g></g>
                             </svg>
                     </a>
@@ -50,7 +50,7 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="item-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M221.69-221.69q-7.54-7.54-7.54-18.46 0-10.93 7.54-18.16l480.77-480.5q7.42-7.65 17.42-7.79 10-.13 18.29 8.16 7.68 7.67 7.68 18.59 0 10.93-7.54 18.16l-480 480q-7.23 7.54-18.16 7.54-10.92 0-18.46-7.54Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M221.69-221.69q-7.54-7.54-7.54-18.46 0-10.93 7.54-18.16l480.77-480.5q7.42-7.65 17.42-7.79 10-.13 18.29 8.16 7.68 7.67 7.68 18.59 0 10.93-7.54 18.16l-480 480q-7.23 7.54-18.16 7.54-10.92 0-18.46-7.54Z"/></svg>
                 </a>
                 <a href="#" class="item-link">Grok</a>
             </li>
@@ -80,7 +80,7 @@
                 </a>
                 <a href="#" class="item-link">Mais</a>
             </li>
-            <a href="#" class="tweet-btn"><ion-icon name="pencil"></ion-icon> <div class="text">Tweet</div></a>
+            <a href="#" class="tweet-btn"><ion-icon name="pencil"></ion-icon> <div class="text">Postar</div></a>
         
         
             <!-- sub menu start ----------------------------------------------------------------------------------- -->
@@ -130,16 +130,33 @@
                 </li>
                 </ul>
             </div>
-            <!-- ------------------------------------------------------------------------------------------------- -->
-        
             </ul>
-        
+
+            <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
+            <div class="overlay"></div>
+            <!-- ------------------------------------------------------------------------------------------------- -->  
+
+            <div class="sub-items-box2">
+                <ul>
+                    <li class="sub-item">
+                        <a href="{% url 'login' %}" class="item-link">Adicionar uma conta existente</a>
+                    </li>
+                    <li class="sub-item">
+                        <a href="{% url 'logout' %}" class="item-link">Sair de @{{ user.username }}</a>
+                    </li>
+                </ul>
+            </div>
+            </ul>
+            <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
+            <div class="overlay"></div>
+            <!-- ------------------------------------------------------------------------------------------------- -->  
+
             <a href="#" class="profile-btn">
             <div class="profile-info">
                 <img src="./images/Ultra HDr1.jpg" alt="" class="profile-img" width="35" height="35">
                 <div>
-                <p class="name">Sadee</p>
-                <p class="username">@codewithsadee</p>
+                <p class="name">{{ user.username }}</p>
+                <p class="username">@{{ user.username }}</p>
                 </div>
             </div>
             <div class="option-icon">
@@ -148,12 +165,7 @@
             </a>
         </nav>
     
-    <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
-    <div class="overlay"></div>
-    <!-- ------------------------------------------------------------------------------------------------- -->
     
-    
-    <!-- custom script -->
     <script>
         const moreBtn = document.querySelector('#moreBtn');
         const subItemsBox = document.querySelector('.sub-items-box');
@@ -168,10 +180,24 @@
         subItemsBox.classList.remove('active');
         overlay.classList.remove('active');
         })
+
+        const perfilBtn = document.querySelector('.profile-btn');
+        const subItemsBox2 = document.querySelector('.sub-items-box2');
+        const overlay2 = document.querySelector('.overlay')
+    
+        perfilBtn.addEventListener('click', function () {
+        subItemsBox2.classList.add('active');
+        overlay2.classList.add('active');
+        });
+    
+        overlay2.addEventListener('click', function () {
+        subItemsBox2.classList.remove('active');
+        overlay2.classList.remove('active');
+        })
     
     </script>
     
-    <!-- ionicon link -->
+
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     

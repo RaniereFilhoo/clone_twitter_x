@@ -24,7 +24,7 @@ html {
 a {
     text-decoration: none;
     color: var(--colorPrimary);
-    font-size: 18px;
+    font-size: 20px;
 }
 
 li {
@@ -46,6 +46,7 @@ nav.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 95px;
 }
 
 .navbar {
@@ -73,10 +74,6 @@ nav.sidebar {
     color: var(--brandColor);
 }
 
-.navbar-brand a ion-icon {
-    font-size: 30px;
-}
-
 .nav-item {
     padding: 8px 25px 8px 10px;
     border-radius: 50px;
@@ -100,7 +97,7 @@ nav.sidebar {
 }
 
 .nav-item .item-icon.home ion-icon {
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .nav-item .item-icon.hash {
@@ -118,7 +115,7 @@ a.tweet-btn {
     padding: 15px;
     margin-top: 5px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -139,7 +136,7 @@ a.profile-btn {
     align-items: center;
     padding: 10px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .profile-btn:hover {
@@ -180,11 +177,28 @@ img.profile-img {
     left: 0px;
     background: var(--background);
     box-shadow: 0 0 10px #fff5;
-    width: 250px;
+    width: 300px;
     border-radius: 20px;
     overflow: hidden;
     display: none;
     z-index: 100;
+}
+
+.sub-items-box2 {
+    position: absolute;
+    bottom: 70px;
+    left: 120px;
+    background: var(--background);
+    box-shadow: 0 0 10px #fff5;
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: none;
+    z-index: 100;
+}
+
+.sub-items-box2.active {
+    display: block;
 }
 
 .sub-items-box.active {
@@ -212,7 +226,8 @@ img.profile-img {
 }
 
 .sub-item .item-link {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .config {
