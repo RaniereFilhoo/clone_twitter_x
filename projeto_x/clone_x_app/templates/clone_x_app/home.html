@@ -1,12 +1,180 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../../assets/icone_x.jpg" type="image/png">
-    <title>Página Inicial/X</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página Inicial / X</title>
+        <link rel="icon" href="../../../assets/icons/icone_x.jpg" type="image/png">
+        <link rel="stylesheet" type="text/css" href="{% static '../../../assets/css/style.css' %}">
+    </head>
     
-</body>
+    <body>
+    
+        <nav class="sidebar">
+            <ul class="navbar">
+                <li class="navbar-brand">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path></g></g>
+                            </svg>
+                    </a>
+                </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon home">
+                <ion-icon name="home-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Página Inicial</a>
+            </li>
+            <li class="nav-item hash">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28.5" height="28.5" viewBox="0,0,256,256">
+                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z"></path></g></g>
+                </svg>
+                #
+                </a>
+                <a href="#" class="item-link">Explorar</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Notificações</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <ion-icon name="mail-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Mensagens</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="26px" fill="#e8eaed"><path d="M221.69-221.69q-7.54-7.54-7.54-18.46 0-10.93 7.54-18.16l480.77-480.5q7.42-7.65 17.42-7.79 10-.13 18.29 8.16 7.68 7.67 7.68 18.59 0 10.93-7.54 18.16l-480 480q-7.23 7.54-18.16 7.54-10.92 0-18.46-7.54Z"/></svg>
+                </a>
+                <a href="#" class="item-link">Grok</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <ion-icon name="people-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Comunidades</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0,0,256,256">
+                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path></g></g>
+                        </svg>
+                </a>
+                <a href="#" class="item-link">Premium</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="item-icon">
+                    <ion-icon name="person-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Perfil</a>
+            </li>
+            <li class="nav-item" id="moreBtn">
+                <a href="#" class="item-icon">
+                <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
+                </a>
+                <a href="#" class="item-link">Mais</a>
+            </li>
+            <a href="#" class="tweet-btn"><ion-icon name="pencil"></ion-icon> <div class="text">Tweet</div></a>
+        
+        
+            <!-- sub menu start ----------------------------------------------------------------------------------- -->
+            <div class="sub-items-box">
+                <ul>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M326.52-302.65q12.36 0 20.86-8.37 8.5-8.36 8.5-20.73 0-12.37-8.55-20.87-8.55-8.5-20.92-8.5-12.37 0-20.68 8.56-8.31 8.55-8.31 20.92 0 12.37 8.36 20.68 8.37 8.31 20.74 8.31Zm0-148.31q12.36 0 20.86-8.36t8.5-20.73q0-12.37-8.55-20.87-8.55-8.5-20.92-8.5-12.37 0-20.68 8.55t-8.31 20.92q0 12.37 8.36 20.68 8.37 8.31 20.74 8.31Zm0-148.92q12.36 0 20.86-8.37 8.5-8.36 8.5-20.73 0-12.37-8.55-20.87-8.55-8.5-20.92-8.5-12.37 0-20.68 8.56-8.31 8.55-8.31 20.92 0 12.37 8.36 20.68 8.37 8.31 20.74 8.31Zm121.79 286.96H660v-36.93H448.31v36.93Zm0-148.93H660v-36.92H448.31v36.92Zm0-148.3H660v-36.93H448.31v36.93ZM226.89-165.54q-25.75 0-43.55-17.8-17.8-17.8-17.8-43.55v-506.22q0-25.75 17.8-43.55 17.8-17.8 43.55-17.8h506.22q25.75 0 43.55 17.8 17.8 17.8 17.8 43.55v506.22q0 25.75-17.8 43.55-17.8 17.8-43.55 17.8H226.89Zm.19-36.92h505.84q9.23 0 16.93-7.69 7.69-7.7 7.69-16.93v-505.84q0-9.23-7.69-16.93-7.7-7.69-16.93-7.69H227.08q-9.23 0-16.93 7.69-7.69 7.7-7.69 16.93v505.84q0 9.23 7.69 16.93 7.7 7.69 16.93 7.69Zm-24.62-555.08V-202.46-757.54Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Listas</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M244.92-187.38v-545.61q0-25.87 17.8-43.67t43.57-17.8h347.42q25.77 0 43.57 17.8t17.8 43.67v545.61L480-288 244.92-187.38Zm36.93-57.08L480-329.97l198.15 85.51v-488.46q0-9.23-7.69-16.93-7.69-7.69-16.92-7.69H306.46q-9.23 0-16.92 7.69-7.69 7.7-7.69 16.93v488.46Zm0-513.08h396.3-396.3Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Itens salvos</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M539.13-466.77q-31.86 0-53.65-21.79t-21.79-53.84q0-32.06 21.83-53.6t53.89-21.54q31.64 0 53.35 21.68 21.7 21.69 21.7 53.54 0 31.86-21.47 53.7-21.48 21.85-53.86 21.85ZM294.77-339.08q-25.39 0-43.46-18.07-18.08-18.08-18.08-43.47v-283.07q0-25.39 18.08-43.46 18.07-18.08 43.46-18.08H784q25.38 0 43.46 18.08 18.08 18.07 18.08 43.46v283.07q0 25.39-18.08 43.47-18.08 18.07-43.46 18.07H294.77ZM332.92-376h412.93q0-26.35 18.43-44.87 18.44-18.51 44.34-18.51v-205.54q-26.24 0-44.5-18.62-18.27-18.61-18.27-44.77H332.92q0 26.35-18.44 44.87-18.43 18.52-44.33 18.52v205.54q26.23 0 44.5 18.61 18.27 18.62 18.27 44.77Zm395.39 155.08H176q-25.38 0-43.46-18.08-18.08-18.08-18.08-43.46V-628h36.92v345.54q0 9.23 7.7 16.92 7.69 7.69 16.92 7.69h552.31v36.93ZM294.77-376h-24.62v-332.31h24.62q-10 0-17.31 7.31-7.31 7.31-7.31 17.31v283.07q0 10 7.31 17.31 7.31 7.31 17.31 7.31Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Monetização</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m152.62-280.96-26.47-25.96 247.12-248.62 158.15 158.16 241.2-237.43H638.77v-36.92h195.08v195.08h-36.93v-132.31L531.54-343.08 373.38-501.23 152.62-280.96Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Ads</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M187.52-166.15q-25.77 0-43.57-17.8t-17.8-43.74v-390.77q0-25.94 17.8-43.74t43.74-17.8h176v-52.35q0-25.96 17.8-43.73 17.8-17.77 43.58-17.77h109.86q25.78 0 43.58 17.8 17.8 17.8 17.8 43.74V-680h176q25.94 0 43.74 17.8t17.8 43.74v390.77q0 25.94-17.8 43.74t-43.57 17.8H187.52Zm.17-36.93h584.62q9.23 0 16.92-7.69 7.69-7.69 7.69-16.92v-390.77q0-9.23-7.69-16.92-7.69-7.7-16.92-7.7H187.69q-9.23 0-16.92 7.7-7.69 7.69-7.69 16.92v390.77q0 9.23 7.69 16.92 7.69 7.69 16.92 7.69ZM400.62-680h158.76v-52.31q0-9.23-7.69-16.92-7.69-7.69-16.92-7.69H425.23q-9.23 0-16.92 7.69-7.69 7.69-7.69 16.92V-680ZM163.08-203.08v-440 440Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Empregos</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M313.69-280.19v-399.5h36.93v399.5h-36.93Zm148.04 154.15v-707.81h36.92v707.81h-36.92ZM166.15-430.15v-100.31h36.93v100.31h-36.93Zm443.12 149.96v-399.5h36.92v399.5h-36.92Zm147.65-149.96v-100.31h36.93v100.31h-36.93Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Crie seu espaço</a>
+                </li>
+                <li class="sub-item">
+                    <a href="#" class="item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M408.96-126.15 394.5-239.96q-19.65-5.81-42.85-18.44-23.19-12.64-38.9-26.79L208.5-241.04l-71.54-125.08 91-68.42q-2.15-10.7-3.11-21.72-.97-11.01-.97-22.97 0-9.46 1.22-20.89 1.21-11.42 2.98-26.57l-91.12-68.19 71.54-122.93 104.69 44q17.31-14.54 38.21-26.73 20.91-12.19 42.33-19.34l15.23-114.58h142.46l14.46 114.61q23.24 8.2 41.14 18.91 17.9 10.71 36.6 27.13l108.26-44 71.54 122.93-95.92 71.77q2.92 12.34 3.5 22.13.58 9.79.58 20.79 0 10.23-.77 20.37-.77 10.15-3.43 24.63l93.77 69.07-71.53 125.08-106-45.54q-17.97 15.58-36.33 26.7-18.37 11.11-41.41 19.11l-14.46 114.62H408.96Zm31.25-36.93h77.48l15.37-108.8q29.44-8 52.71-21.41 23.27-13.4 47.85-37.71l100.26 43.15 39.27-67.19L685-421q4.5-17.08 6.31-31.15 1.81-14.07 1.81-28.04 0-14.93-1.56-27.83-1.56-12.9-6.56-29.44l89.69-67.92-38.65-67.39-103.31 43.39q-16.81-18.7-46.38-36.12-29.58-17.42-54.23-23L519.9-797.54h-79.67l-11.96 108.18q-31.23 6.94-55.04 20.11-23.81 13.17-49.61 38.87l-99.27-42.39-39.66 67.39 86.66 64.26q-5 14.08-7 29.6-2 15.51-2 31.76 0 15.03 1.75 29.53 1.75 14.5 5.98 29.85l-85.39 65.15 39.57 67.38 98.47-42q24.27 24.27 48.94 38 24.68 13.73 55.66 21.23l12.88 107.54Zm37.41-220q40.57 0 68.73-28.18 28.15-28.19 28.15-68.77 0-40.59-28.18-68.74-28.17-28.15-68.74-28.15-40.73 0-68.83 28.18-28.1 28.19-28.1 68.77 0 40.59 28.1 68.74 28.1 28.15 68.87 28.15Zm2.26-97.42Z"/></svg>
+                    </a>
+                    <a href="#" class="item-link">Configurações e privacidade</a>
+                </li>
+                </ul>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------- -->
+        
+            </ul>
+        
+            <a href="#" class="profile-btn">
+            <div class="profile-info">
+                <img src="./images/Ultra HDr1.jpg" alt="" class="profile-img" width="35" height="35">
+                <div>
+                <p class="name">Sadee</p>
+                <p class="username">@codewithsadee</p>
+                </div>
+            </div>
+            <div class="option-icon">
+                <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </div>
+            </a>
+        </nav>
+    
+    <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
+    <div class="overlay"></div>
+    <!-- ------------------------------------------------------------------------------------------------- -->
+    
+    
+    <!-- custom script -->
+    <script>
+        const moreBtn = document.querySelector('#moreBtn');
+        const subItemsBox = document.querySelector('.sub-items-box');
+        const overlay = document.querySelector('.overlay')
+    
+        moreBtn.addEventListener('click', function () {
+        subItemsBox.classList.add('active');
+        overlay.classList.add('active');
+        });
+    
+        overlay.addEventListener('click', function () {
+        subItemsBox.classList.remove('active');
+        overlay.classList.remove('active');
+        })
+    
+    </script>
+    
+    <!-- ionicon link -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    </body>
+    
 </html>
