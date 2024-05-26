@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" href="../../../assets/icons/icone_x.jpg" type="image/png">
+    <title>Login / X</title>
+</head>
+<body>
+
+    <form class="loginform" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <input class="input-nome" type="text" placeholder="Nome" name="username">
+        <br>
+        <br>
+        <input class="input-senha" type="password" placeholder="Senha" name="senha">
+        <br>
+        <br>
+        <input class="btn-logar" type="submit" value="Logar">
+    </form>
+
+</body>
+</html>

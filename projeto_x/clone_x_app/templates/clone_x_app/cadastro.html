@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="icon" href="../../../assets/icons/icone_x.jpg" type="image/png">
+    <title>Cadastro / X</title>
+</head>
+<body>
+    <form class="formcad" action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
+        <input id="cad" class="input-nome-cadastro" type="text" placeholder="Nome" name="username" required>
+        <br>
+        <br>
+        <input id="cad" class="input-email" type="email" placeholder="Email" name="email" required>
+        <br>
+        <br>
+        <input class="input-senha-cadastro" type="password" placeholder="Senha" name="senha" required>
+        <br>
+        <br>
+        <input class="btn-cadastro" type="submit" value="Cadastrar">
+    </form>
+</body>
+</html>
