@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Home
 
-# Create your views here.
+def home(request):
+    posts = Home.objects.all()
+    return render(request, 'clone_x_app/home.html', {'posts': posts})
