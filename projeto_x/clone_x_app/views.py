@@ -8,6 +8,10 @@ def home(request):
     posts = Home.objects.all()
     return render(request, 'clone_x_app/home.html', {'posts': posts})
 
+def logout(request):
+    posts = Home.objects.all()
+    return render(request, 'clone_x_app/logout.html', {'posts': posts})
+
 def cadastro(request):
     if request.method == "GET":
         return render(request, 'clone_x_app/cadastro.html')
