@@ -27,8 +27,11 @@ def cadastro(request):
 
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
+        user = authenticate(username=username, password=senha)
+        login(request, user)
+        
 
-        return redirect('login')
+        return redirect('home')
 
 
 def login_view(request):
