@@ -4,10 +4,10 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X. O que está acontecendo / X</title>
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <link rel="icon" href="../../../assets/icons/icone_x.jpg" type="image/png">
-    <link rel="stylesheet" type="text/css" href="{% static '../../../assets/css/logout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
+    <title>Entrar no X / X</title>
 </head>
 <body>
 
@@ -37,13 +37,37 @@
             <div class="linha"></div>
         </div>
         <div class="criar">
-            <a href="{% url 'cadastro' %}" class="c-texto">Criar conta</a>
+            <a href="#" class="c-texto">Criar conta</a>
         </div>
         <p class="existente">Já tem uma conta?</p>
         <div class="entrar">
-            <a href="{% url 'login' %}" class="t-entrar">Entrar</a>
+            <a href="#" class="t-entrar">Entrar</a>
         </div>
     </section>
-    
+    <div class="cadastro-form">
+        <a href="{% url 'home' %}">
+            <svg class="close" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0,0,256,256">
+                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M9.15625,6.3125l-2.84375,2.84375l15.84375,15.84375l-15.9375,15.96875l2.8125,2.8125l15.96875,-15.9375l15.9375,15.9375l2.84375,-2.84375l-15.9375,-15.9375l15.84375,-15.84375l-2.84375,-2.84375l-15.84375,15.84375z"></path></g></g>
+            </svg>
+        </a> 
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
+            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path></g></g>
+        </svg>
+        <p class="conta">Entrar n X</p>
+        <form class="formcad" action="{% url 'logincopy' %}" method="POST">
+            {% csrf_token %}
+            <div class="field">
+                <input type="text" id="cad" name="username" required>
+                <label for="name" data-content="Nome"></label>
+            </div>
+            <br>
+            <br>
+            <div class="field">
+                <input type="password" id="cad" name="senha" required>
+                <label for="password" data-content="Senha"></label>
+            </div>
+            <input class="btn-cadastro" type="submit" value="Avançar">
+        </form>
+    </div>
 </body>
 </html>

@@ -49,3 +49,21 @@ def login_view(request):
             return redirect('home')
         else:
             return HttpResponse('Email ou senha inválidos')
+        
+def logincopy_view(request):
+    if request.method == "GET":
+        return render(request, 'clone_x_app/logincopy.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+
+        if user is not None:
+            login(request, user)
+
+            return redirect('home')
+        else:
+            return HttpResponse('Email ou senha inválidos')
+        
+        
