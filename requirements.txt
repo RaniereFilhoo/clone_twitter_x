@@ -1,5 +1,4 @@
 python-decouple
-python
 django
 psycopg2
 psycopg2-binary
