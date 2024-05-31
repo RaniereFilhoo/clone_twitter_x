@@ -1,5 +1,4 @@
 from django.db import models
 
-class Home(models.Model):
-    nome = models.CharField(max_length=30)
+class Comentario(models.Model):
     comentario = models.TextField()

@@ -7,8 +7,33 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Página Inicial / X</title>
-        <link rel="icon" href="../../../assets/icons/icone_x.jpg" type="image/png">
-        <link rel="stylesheet" type="text/css" href="{% static '../../../assets/css/style.css' %}">
+        <link rel="icon" href="{% static 'icons/icone_x.jpg' %}" type="image/png">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/javascript.js' %}"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+    
+            $(document).ready(function(){
+                
+                $('#comentario-form').submit(function(event){
+                    event.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "criarComentario" %}',
+                        data: $(this).serialize(),
+                        beforeSend: function(xhr) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                        },
+                        dataType: 'json',
+                        success: function(response){
+                            $('#comentarios').append('<p>' + response.comentario + '</p>');
+                            $('#comentario-form')[0].reset();
+                        }
+                    });
+                });
+            });
+        </script>
     </head>
     
     <body>
@@ -153,7 +178,7 @@
 
             <a href="#" class="profile-btn">
             <div class="profile-info">
-                <img src="./images/Ultra HDr1.jpg" alt="" class="profile-img" width="35" height="35">
+                <img src="#" alt="" class="profile-img" width="35" height="35">
                 <div>
                 <p class="name">{{ user.username }}</p>
                 <p class="username">@{{ user.username }}</p>
@@ -164,7 +189,30 @@
             </div>
             </a>
         </nav>
-    
+
+    <section id="main">
+        <ul>
+            <li class="text-main" id="borda-1">Para você</li>
+            <li class="text-main" id="borda-2">Seguindo</li>
+        </ul>
+    </section>    
+    <section id="coments">
+        <div id="img-info">
+            <img src="#" alt="" class="profile-img" width="35" height="35">
+        </div>
+        <div id="comentarios">
+            <form id="comentario-form" method="post" action="{% url 'criarComentario' %}">
+                {% csrf_token %}
+                <div class="form" placeholder="teste">{{ form.as_p }}</div>
+                <button type="submit" class="button-coments" >Postar</button>
+            </form>
+        </div>
+        
+        
+    </section>
+    <div class="bordas">
+            
+    </div>
     
     <script>
         const moreBtn = document.querySelector('#moreBtn');
