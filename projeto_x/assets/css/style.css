@@ -38,6 +38,7 @@ body {
 }
 
 nav.sidebar {
+    position: fixed;
     height: 100%;
     width: 260px;
     background: var(--background);
@@ -67,6 +68,10 @@ nav.sidebar {
 
 .navbar-brand:hover {
     background: var(--brandBackground);
+}
+
+.item-link {
+    font-weight: 500;
 }
 
 .navbar-brand a {
@@ -234,6 +239,111 @@ img.profile-img {
     padding-top: 2px;
     margin-top: 2px;
     border-top: 1px solid #fff2;
+}
+
+#main {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+}
+
+.text-main {
+    display: inline-block;
+    border-bottom: 1px solid #2e2e2e;
+    padding: 17px 118px 17px 118px;
+    font-size: 15px;
+    font-weight: 700;
+    position: absolute;
+}
+
+#borda-1 {
+    left: 402px;
+
+}
+
+#borda-2 {
+    left: 700px;
+}
+
+#coments {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 65px;
+    left: 420px;
+
+}
+
+#img-info {
+    position: relative;
+    top: 7px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#comentarios {
+    position: relative;
+}
+
+.button-coments {
+    position: relative;
+    top: 15px;
+    left: 420px;
+    border: none;
+    width: 90px;
+    background: var(--tweetBtnBg);
+    color: var(--colorWhite);
+    text-align: center;
+    padding: 9px;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 15;
+    cursor: pointer;
+}
+
+.bordas {
+    position: absolute;
+    left: 402px;
+    width: 600px;
+    height: 100%;
+    border: 1px solid #2e2e2e;
+    border-bottom: none ;
+    border-top: none;
+}
+
+form {
+    position: relative;
+}
+
+textarea {
+    position: relative;
+    right: 90px;
+    top: 12px;
+    color: #fff;
+    background: none;
+    border: 1px solid #2e2e2e;
+    height: 90px;
+    width: 510px;
+    overflow: hidden; 
+    resize: none; 
+    align-items: center;
+    z-index: 10;
+    padding: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    caret-color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+textarea:focus {
+    outline: none;
 }
 
   /* overlay ----------------------------------- */
