@@ -7,6 +7,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView 
 from .forms import ComentarioForm
 from django.http import JsonResponse
+from .forms import PerfilForm
+from .models import Perfil
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     posts = Comentario.objects.all()
@@ -70,10 +73,30 @@ def logincopy_view(request):
         else:
             return HttpResponse('Email ou senha inválidos')
 
-def perfil(request):
-    user = request.user
-    return render(request, 'clone_x_app/perfil.html', {'user': user})
 
+@login_required
+def perfil(request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=perfil)
+    return render(request, 'clone_x_app/perfil.html', {'perfil': perfil, 'form': form})
+
+@login_required
+def upload_foto(request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=perfil)
+    return render(request, 'clone_x_app/perfil.html', {'form': form})
 
         
 class ComentarioCreateView(CreateView):

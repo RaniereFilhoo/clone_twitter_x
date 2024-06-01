@@ -11,5 +11,6 @@ urlpatterns = [
     path('login/', views.logincopy_view, name='logincopy'),
     path('home', ComentarioCreateView.as_view(), name='criarComentario'),
     path('perfil/', perfil, name='perfil'),
-    
+    path('perfil/', views.perfil, name='perfil'),
+    path('upload_foto/', views.upload_foto, name='upload_foto'),
 ]
