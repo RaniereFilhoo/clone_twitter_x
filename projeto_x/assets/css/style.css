@@ -21,6 +21,10 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 a {
     text-decoration: none;
     color: var(--colorPrimary);
@@ -86,6 +90,10 @@ nav.sidebar {
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
+}
+
+.res{
+    visibility: hidden;
 }
 
 .nav-item:hover {
@@ -179,8 +187,8 @@ img.profile-img {
 .sub-items-box {
     position: absolute;
     bottom: 20px;
-    left: 0px;
-    background: var(--background);
+    left: -60px;
+    background-color: var(--background);
     box-shadow: 0 0 10px #fff5;
     width: 300px;
     border-radius: 20px;
@@ -192,8 +200,8 @@ img.profile-img {
 .sub-items-box2 {
     position: absolute;
     bottom: 70px;
-    left: 120px;
-    background: var(--background);
+    left: -60px;
+    background-color: var(--background);
     box-shadow: 0 0 10px #fff5;
     width: 300px;
     border-radius: 15px;
@@ -248,24 +256,40 @@ img.profile-img {
     display: flex;
     color: #fff;
     justify-content: center;
+    z-index: 20;
 }
 
 .text-main {
     display: inline-block;
-    border-bottom: 1px solid #2e2e2e;
     padding: 17px 118px 17px 118px;
     font-size: 15px;
     font-weight: 700;
     position: absolute;
+    cursor: pointer;
+    background: transparent;
+    backdrop-filter: blur(50px);
+
+}
+
+li:hover {
+    background-color: #c1c1c120;
 }
 
 #borda-1 {
     left: 402px;
-
+    border-left: 1px solid #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-underline-offset: 13px;
+    text-decoration-color: #1d9bf0;
+    text-decoration-thickness: 4px; 
 }
 
 #borda-2 {
     left: 700px;
+    border-right: 1px solid #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
 }
 
 #coments {
@@ -286,11 +310,12 @@ img.profile-img {
 
 #comentarios {
     position: relative;
+    z-index: 22;
 }
 
 .button-coments {
     position: relative;
-    top: 15px;
+    top: -30px;
     left: 420px;
     border: none;
     width: 90px;
@@ -322,8 +347,8 @@ form {
 
 textarea {
     position: relative;
-    right: 90px;
-    top: 12px;
+    right: 0px;
+    top: -7px;
     color: #fff;
     background: none;
     border: 1px solid #2e2e2e;
@@ -345,6 +370,91 @@ textarea {
 textarea:focus {
     outline: none;
 }
+
+#for-you {
+    position: relative;
+    display: block;
+    color: #fff;
+    width: 600px;
+    height: 600px;
+    right: 583px;
+    top: 160px;
+    
+}
+
+.user {
+    position: relative;
+    display: flex;
+    padding-bottom: 90px;
+    border: 1px solid #2e2e2e;
+    right: 0px;
+    width: 600px;
+}
+
+#user-nome {
+    position: relative;
+    top: 12px;
+}
+
+.username {
+    position: relative;
+    color: #858585;
+    font-weight: 200;
+}
+
+#arroba {
+    top: 12px;
+    margin-left: 10px;
+}
+
+.coment-form {
+    position: absolute;
+    margin-bottom: 30px;
+    word-break: break-all;
+    top: 35px;
+    right: 80px;
+    width: 450px;
+}
+
+#user-foto {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.temp-post {
+    position: absolute;
+    color: #858585;
+    font-weight: 200;
+    top: 12px;
+    left: 160px;
+}
+
+.form input[type="file"] {
+    position: relative;
+    right: 60px;
+    color: #1d9bf0;
+    cursor: pointer;
+}
+
+.img-coment {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%; 
+    top: 70px;
+    right: 160px;
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar {
+    background-color: #393939;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #737373;
+}
+
 
   /* overlay ----------------------------------- */
 .overlay {

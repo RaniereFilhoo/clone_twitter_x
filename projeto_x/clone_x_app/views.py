@@ -3,10 +3,10 @@ from .models import Comentario
 from django.contrib.auth.models import User
 from django.http.response import HttpResponse
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView 
 from .forms import ComentarioForm
-from django.http import JsonResponse
+from django.views.generic import ListView
 
 def home(request):
     posts = Comentario.objects.all()
@@ -35,7 +35,7 @@ def cadastro(request):
         login(request, user)
         
 
-        return redirect('home')
+        return redirect('listaComentarios')
 
 
 def login_view(request):
@@ -50,7 +50,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
 
-            return redirect('home')
+            return redirect('listaComentarios')
         else:
             return HttpResponse('Email ou senha inválidos')
         
@@ -66,7 +66,7 @@ def logincopy_view(request):
         if user is not None:
             login(request, user)
 
-            return redirect('home')
+            return redirect('listaComentarios')
         else:
             return HttpResponse('Email ou senha inválidos')
         
@@ -77,7 +77,22 @@ class ComentarioCreateView(CreateView):
     success_url = 'home'
 
     def form_valid(self, form):
-        comentario = form.save()
-        return JsonResponse({
-            'comentario': comentario.comentario,
-        })
+        self.object = form.save(commit=False)
+        self.object.autor = self.request.user
+        self.object.save()
+        return super().form_valid(form)
+    
+class ComentarioList(ListView):
+    model = Comentario
+    template_name = 'clone_x_app/home.html'
+    context_object_name = 'comentarios'
+    ordering = ['-data_criacao']
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ComentarioForm()
+        return context
+
+
+
+
