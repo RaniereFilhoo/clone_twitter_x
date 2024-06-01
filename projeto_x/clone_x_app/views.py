@@ -13,7 +13,10 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     posts = Comentario.objects.all()
-    return render(request, 'clone_x_app/home.html', {'posts': posts})
+    perfil = Perfil.objects.get(user=request.user)
+    foto_perfil_url = perfil.foto.url if perfil.foto else None
+    return render(request, 'clone_x_app/home.html', {'posts': posts, 'foto_perfil_url': foto_perfil_url})
+
 
 def logout(request):
     posts = Comentario.objects.all()
@@ -110,3 +113,9 @@ class ComentarioCreateView(CreateView):
         return JsonResponse({
             'comentario': comentario.comentario,
         })
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        perfil = Perfil.objects.get(user=self.request.user)
+        context['foto_perfil_url'] = perfil.foto.url if perfil.foto else None
+        return context

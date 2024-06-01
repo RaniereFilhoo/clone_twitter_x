@@ -159,6 +159,10 @@ img.profile-img {
     margin-right: 10px;
 }
 
+.imgperfil {
+    border-radius: 90px;
+}
+
 .profile-info .name {
     font-weight: bold;
     line-height: 1.5;

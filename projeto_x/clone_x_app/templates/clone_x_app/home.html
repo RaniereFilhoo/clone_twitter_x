@@ -178,8 +178,7 @@
 
             <a href="#" class="profile-btn">
             <div class="profile-info">
-                <img src="#" alt="" class="profile-img" width="35" height="35">
-                <div>
+                <img src="{{ foto_perfil_url }}" class="imgperfil" width="35" height="35" alt="Foto de Perfil">
                 <p class="name">{{ user.username }}</p>
                 <p class="username">@{{ user.username }}</p>
                 </div>
@@ -198,7 +197,7 @@
     </section>    
     <section id="coments">
         <div id="img-info">
-            <img src="#" alt="" class="profile-img" width="35" height="35">
+            <img src="{{ foto_perfil_url }}" class="imgperfil" width="35" height="35" alt="Foto de Perfil">
         </div>
         <div id="comentarios">
             <form id="comentario-form" method="post" action="{% url 'criarComentario' %}">
