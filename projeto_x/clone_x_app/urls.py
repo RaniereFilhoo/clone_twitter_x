@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, logout
+from .views import home, logout, perfil
 from . import views
 from .views import ComentarioCreateView
 
@@ -10,4 +10,6 @@ urlpatterns = [
     path('login', views.login_view, name='login'),
     path('login/', views.logincopy_view, name='logincopy'),
     path('home', ComentarioCreateView.as_view(), name='criarComentario'),
+    path('perfil/', perfil, name='perfil'),
+    
 ]

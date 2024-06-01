@@ -69,6 +69,12 @@ def logincopy_view(request):
             return redirect('home')
         else:
             return HttpResponse('Email ou senha inválidos')
+
+def perfil(request):
+    user = request.user
+    return render(request, 'clone_x_app/perfil.html', {'user': user})
+
+
         
 class ComentarioCreateView(CreateView):
     model = Comentario
