@@ -376,7 +376,6 @@ textarea:focus {
     display: block;
     color: #fff;
     width: 600px;
-    height: 600px;
     right: 583px;
     top: 160px;
     
@@ -384,8 +383,7 @@ textarea:focus {
 
 .user {
     position: relative;
-    display: flex;
-    padding-bottom: 90px;
+    display: block;
     border: 1px solid #2e2e2e;
     right: 0px;
     width: 600px;
@@ -393,7 +391,8 @@ textarea:focus {
 
 #user-nome {
     position: relative;
-    top: 12px;
+    top: -38px;
+    left: 70px;
 }
 
 .username {
@@ -403,17 +402,20 @@ textarea:focus {
 }
 
 #arroba {
-    top: 12px;
+    position: relative;
+    top: -60px;
+    left: 100px;
     margin-left: 10px;
 }
 
 .coment-form {
-    position: absolute;
-    margin-bottom: 30px;
-    word-break: break-all;
-    top: 35px;
-    right: 80px;
-    width: 450px;
+    position: relative;
+    margin: 0px 30px 0px 30px;
+    bottom: 55px;
+    left: 40px;
+    width: 500px;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 #user-foto {
@@ -442,8 +444,9 @@ textarea:focus {
     margin-left: auto;
     margin-right: auto;
     width: 50%; 
-    top: 70px;
-    right: 160px;
+    height: 50%;
+    bottom: 35px;
+    right: 80px;
     border-radius: 10px;
 }
 
@@ -454,6 +457,16 @@ textarea:focus {
     background-color: #737373;
 }
 
+.tit {
+    position: relative;
+    z-index: 200;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    top: -20px;
+    right: -70px;
+    margin-right: 15px;
+}
 
   /* overlay ----------------------------------- */
 .overlay {

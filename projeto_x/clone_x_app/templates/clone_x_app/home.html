@@ -1,5 +1,5 @@
 {% load static %}
-{% load humanize %}
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,11 +10,11 @@
         <title>Página Inicial / X</title>
         <link rel="icon" href="{% static 'icons/icone_x.jpg' %}" type="image/png">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-        <script src="{% static 'js/javascript.js' %}"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
     
+
         $(document).ready(function(){
         $('#comentario-form').submit(function(event){
             event.preventDefault();
@@ -46,6 +46,7 @@
     
     <body>
     
+
         <nav class="sidebar">
             <ul class="navbar">
                 <li class="navbar-brand">
@@ -116,7 +117,7 @@
             <a href="#" class="tweet-btn"><ion-icon name="pencil"></ion-icon> <div class="text">Postar</div></a>
         
         
-            <!-- sub menu start ----------------------------------------------------------------------------------- -->
+
             <div class="sub-items-box">
                 <ul>
                 <li class="sub-item">
@@ -164,11 +165,7 @@
                 </ul>
             </div>
             </ul>
-
-            <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
             <div class="overlay"></div>
-            <!-- ------------------------------------------------------------------------------------------------- -->  
-
             <div class="sub-items-box2">
                 <ul>
                     <li class="sub-item">
@@ -180,21 +177,10 @@
                 </ul>
             </div>
             </ul>
-            <!-- overlay for sub item box ------------------------------------------------------------------------------- -->
             <div class="overlay"></div>
-            <!-- ------------------------------------------------------------------------------------------------- -->  
-
             <a href="#" class="profile-btn">
             <div class="profile-info">
-                {% if perfil.foto %}
-                    <img src="{{ perfil.foto.url }}" alt="Foto de Perfil" class="profile-img" width="35" height="35" id="foto-perfil">
-                {% else %}
-                    <svg id="foto-perfil" class="profile-img" width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path opacity="0.34" d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                {% endif %}
+                <img src="#" alt="" class="profile-img" width="35" height="35">
                 <div>
                 <p class="name">{{ user.username }}</p>
                 <p class="username">@{{ user.username }}</p>
@@ -214,17 +200,10 @@
             <div class="borda-2"></div>
         </ul>
     </section>    
+
     <section id="coments">
         <div id="img-info">
-            {% if perfil.foto %}
-            <img src="{{ perfil.foto.url }}" alt="" class="profile-img" width="35" height="35">
-            {% else %}
-                <svg class="" id="foto-perfil" width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path opacity="0.34" d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            {% endif %}
+            <img src="#" alt="" class="profile-img" width="35" height="35">
         </div>
         <div id="comentarios">
             <form id="comentario-form" method="post" action="{% url 'criarComentario' %}" enctype="multipart/form-data">
@@ -241,22 +220,25 @@
                     </div>
                     <p class="name" id="user-nome">{{ comentario.autor.username }}</p>
                     <p class="username" id="arroba">@{{ comentario.autor.username }}</p>
+                    <p class="coment-form">{{ comentario.comentario }}</p>
                     {% if comentario.imagem %}
                         <img class="img-coment" src="{{ comentario.imagem.url }}" alt="Imagem do Comentário" />
                     {% endif %}
-                    <p class="coment-form">{{ comentario.comentario }}</p>
                     <p class="temp-post">· {{ comentario.tempo_desde_criacao }}</p>
+                    <div>
+                        <a class="tit" id="editar" href="{% url 'update' pk=comentario.id %}">Editar</a>
+                        <a class="tit" id="delete" style="color: red;" href="{% url 'delete' pk=comentario.id %}">Apagar</a>
+                    </div>
                 </div>
             {% endfor %}
     </section>
     <div class="bordas"></div>
         
 
-
     <script>
 
+
         document.getElementById('comentario-form').onsubmit = function() {
-            // Recarrega a página após 100 milissegundos do envio do formulário
             setTimeout(function() {
                 window.location.reload();
             }, 100);
@@ -291,12 +273,14 @@
         overlay2.classList.remove('active');
         })
     
+
     </script>
     
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
+
     </body>
     
 </html>

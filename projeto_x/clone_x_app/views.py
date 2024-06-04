@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from .models import Comentario
 from django.contrib.auth.models import User
 from django.http.response import HttpResponse
@@ -7,7 +8,6 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView 
 from .forms import ComentarioForm
 from django.views.generic import ListView
-from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from .forms import PerfilForm
 from .models import Perfil
@@ -121,6 +121,17 @@ def upload_foto(request):
         form = PerfilForm(instance=perfil)
     return render(request, 'clone_x_app/perfil.html', {'form': form})
 
+class ComentarioUpdate(UpdateView):
+    model = Comentario
+    fields = ['comentario']
+    success_url = reverse_lazy('listaComentarios')
+
+class ComentarioDetail(DetailView):
+    queryset = Comentario.objects.all()
+
+class ComentarioDelete(DeleteView):
+    queryset = Comentario.objects.all()
+    success_url = reverse_lazy('listaComentarios')
 
 
 
