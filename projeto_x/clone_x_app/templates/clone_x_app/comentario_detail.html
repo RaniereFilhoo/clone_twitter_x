@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static '#' %}" />
+    <title>Vizualizar Comentario / X</title>
+</head>
+<body>
+    <p class="detail_nome"><span>Nome:</span> {{ object.nome }}</p>
+    <p class="detail_comment"><span>Comentario:</span> {{ object.comentario }}</p>
+    <input type="submit" id="botao_enviar" value="Voltar" onclick="location.href =  '{% url 'listaComentarios' %}'">
+</body>
+</html>

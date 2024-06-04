@@ -8,3 +8,6 @@ class ComentarioForm(forms.ModelForm):
         widgets = {
             'comentario': forms.Textarea(attrs={'placeholder': 'O que está acontecendo?'}),
         }
+    def __init__(self, *args, **kwargs):
+        super(ComentarioForm, self).__init__(*args, **kwargs)
+        self.fields['imagem'].widget.attrs.update({'id': 'id_imagem'})
