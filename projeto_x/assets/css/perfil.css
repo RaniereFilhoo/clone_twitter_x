@@ -273,9 +273,9 @@ img.profile-img {
 
 .perfil_box {
     background: linear-gradient(to bottom, #333639 40%, #000 40%);
-    width: 43.8vw;
+    width: 47.4vw;
     margin-top: 9.5vh;
-    margin-left: 2.7vw;
+    margin-left: -4vw;
     height: 75vh;
 }
 
@@ -313,9 +313,13 @@ img.profile-img {
     background: var(--itemBackground);
 }
 
+.username2 {
+    color: #5D6266;
+    margin-left: 7vh;
+}
+
 .username {
     color: #5D6266;
-    margin-left: 6vh;
 }
 
 .calendaricon {
@@ -336,7 +340,7 @@ img.profile-img {
     justify-content: space-between;
     color: white;
     margin-top: 13vh;
-    margin-left: 0.3vw;
+    margin-left: 1.8vw;
     margin-right: 0.3vw;
 }
 
@@ -367,7 +371,7 @@ img.profile-img {
 input[type='file'] {
     display: none
 }
-  
+
 label {
     background-color: #3e4144;
     display: flex;
@@ -429,7 +433,9 @@ body.overlay-open {
 }
 
 #borda-1 {
-    left: 402px;
+    top: 10px;
+    left: 403px;
+    width: 698px;
 
 }
 
@@ -485,7 +491,7 @@ body.overlay-open {
 .bordas {
     position: absolute;
     left: 402px;
-    width: 600px;
+    width: 700px;
     height: 135%;
     margin-top: -85vh;
     border: 1px solid #2e2e2e;

@@ -45,9 +45,9 @@
             </div>
             <h1>Perfil de {{ perfil.user.username }}</h1>
             {% if perfil.foto %}
-             <div id="foto-perfil-container">
+            <div id="foto-perfil-container">
                 <img src="{{ perfil.foto.url }}" alt="Foto de Perfil" class="profile-picture" id="foto-perfil">
-             </div>
+            </div>
             {% else %}
                 <svg id="foto-perfil" class="profile-img" width="130" height="130" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -57,7 +57,6 @@
             {% endif %}
             
                     
-             
 
         <form method="post" enctype="multipart/form-data" id="form-upload-foto" style="display: none;">
         {% csrf_token %}
@@ -106,7 +105,7 @@
                 <a href="#" class="item-icon home">
                 <ion-icon name="home-outline"></ion-icon>
                 </a>
-                <a href="#" class="item-link">Página Inicial</a>
+                <a href="{% url 'listaComentarios'%}" class="item-link">Página Inicial</a>
             </li>
             <li class="nav-item hash">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28.5" height="28.5" viewBox="0,0,256,256">
@@ -271,7 +270,7 @@
                         </svg>
                 {% endif %}
             <p class="nickname">{{ user.username }}</p>
-            <p class="username">@{{ user.username }}</p>
+            <p class="username2">@{{ user.username }}</p>
             <a href="#">
                 <svg class="calendaricon" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 

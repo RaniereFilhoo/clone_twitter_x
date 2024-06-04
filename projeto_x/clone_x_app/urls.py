@@ -12,7 +12,6 @@ urlpatterns = [
     path('Create/', ComentarioCreateView.as_view(), name='criarComentario'),
     path('home', ComentarioList.as_view(), name='listaComentarios'),
     path('perfil/', perfil, name='perfil'),
-    path('perfil/', views.perfil, name='perfil'),
     path('upload_foto/', views.upload_foto, name='upload_foto'),
 ]
 
