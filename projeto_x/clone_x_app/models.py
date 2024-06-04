@@ -37,3 +37,11 @@ class Comentario(models.Model):
                 return "1 h"
             else:
                 return f"{horas} h"
+
+class Perfil(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    foto = models.ImageField(upload_to='fotos_perfil/', blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
+

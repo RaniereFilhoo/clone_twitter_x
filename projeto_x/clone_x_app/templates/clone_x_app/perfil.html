@@ -1,5 +1,4 @@
 {% load static %}
-{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,44 +6,92 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Página Inicial / X</title>
+        <title>Perfil / X</title>
         <link rel="icon" href="{% static 'icons/icone_x.jpg' %}" type="image/png">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}">
         <script src="{% static 'js/javascript.js' %}"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
     
-        $(document).ready(function(){
-        $('#comentario-form').submit(function(event){
-            event.preventDefault();
-            var formData = new FormData(this);
-            $.ajax({
-                type: 'POST',
-                url: '{% url "criarComentario" %}',
-                data: formData,
-                beforeSend: function(xhr) {
-                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
-                },
-                processData: false,
-                contentType: false, 
-                dataType: 'json',
-                success: function(response){
-                    $('#comentarios').append('<p>' + response.comentario + '</p>');
-                    if(response.imagem_url){
-                        $('#comentarios').append('<img src="' + response.imagem_url + '" />');
-                    }
-                    $('#comentario-form')[0].reset();
-                }
+            $(document).ready(function(){
+                
+                $('#comentario-form').submit(function(event){
+                    event.preventDefault();
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "criarComentario" %}',
+                        data: $(this).serialize(),
+                        beforeSend: function(xhr) {
+                        xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                        },
+                        dataType: 'json',
+                        success: function(response){
+                            $('#comentarios').append('<p>' + response.comentario + '</p>');
+                            $('#comentario-form')[0].reset();
+                        }
+                    });
+                });
             });
-        });
-    });
-
-
         </script>
     </head>
     
     <body>
+
+        <div id="menuEditarPerfil" style="display: none;">
+            <div class="headmenu">
+                <button id="fecharMenuBtn">X</button>
+                <h1 class="h1menu">Editar perfil</h1>
+            </div>
+            <h1>Perfil de {{ perfil.user.username }}</h1>
+            {% if perfil.foto %}
+             <div id="foto-perfil-container">
+                <img src="{{ perfil.foto.url }}" alt="Foto de Perfil" class="profile-picture" id="foto-perfil">
+             </div>
+            {% else %}
+                <svg id="foto-perfil" class="profile-img" width="130" height="130" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path opacity="0.34" d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+            {% endif %}
+            
+                    
+             
+
+        <form method="post" enctype="multipart/form-data" id="form-upload-foto" style="display: none;">
+        {% csrf_token %}
+        <input type="file" id="selecionar-foto" name="foto" style="display: none;">
+        <button type="submit" id="botao-enviar" style="display: none;">Enviar</button>
+    </form>
+
+    <script>
+        
+        document.getElementById('foto-perfil').addEventListener('click', function() {
+            document.getElementById('selecionar-foto').click();
+        });
+
+        
+        document.getElementById('selecionar-foto').addEventListener('change', function(event) {
+            var arquivo = event.target.files[0];
+            var visualizacao = new FileReader();
+            visualizacao.onload = function(event) {
+                document.getElementById('foto-perfil').src = event.target.result;
+            };
+            visualizacao.readAsDataURL(arquivo);
+            document.getElementById('form-upload-foto').style.display = 'block';
+            document.getElementById('botao-enviar').style.display = 'block'; // 
+        });
+    </script>
+
+            <form class="formperfil" action="">
+                <input class="nomeperfil" type="text" placeholder="Nome">
+            </form>
+
+        </div>
+        
+        <div id="overlay" style="display: none;"></div>
+        
     
         <nav class="sidebar">
             <ul class="navbar">
@@ -65,7 +112,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28.5" height="28.5" viewBox="0,0,256,256">
                     <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z"></path></g></g>
                 </svg>
-                <span class="res">#</span>
+                #
                 </a>
                 <a href="#" class="item-link">Explorar</a>
             </li>
@@ -205,56 +252,59 @@
             </div>
             </a>
         </nav>
+    
+    <section class="perfil">
+        <section id="main">
+            <ul>
+                <li class="text-main" id="borda-1">{{ user.username }}</li>
+            </ul>
+        </section>
+        
+        <div class="perfil_box">
+            {% if perfil.foto %}
+                    <img src="{{ perfil.foto.url }}" alt="Foto de Perfil" class="perfil-img" width="130" height="130" id="foto-perfil">
+                {% else %}
+                    <svg class="" id="foto-perfil" width="130" height="130" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4" d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path opacity="0.34" d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                {% endif %}
+            <p class="nickname">{{ user.username }}</p>
+            <p class="username">@{{ user.username }}</p>
+            <a href="#">
+                <svg class="calendaricon" width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-    <section id="main">
-        <ul>
-            <li class="text-main" id="borda-1">Para você</li>
-            <li class="text-main" id="borda-2">Seguindo</li>
-            <div class="borda-1"></div>
-            <div class="borda-2"></div>
-        </ul>
-    </section>    
-    <section id="coments">
-        <div id="img-info">
-            <img src="#" alt="" class="profile-img" width="35" height="35">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="#575B5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                    
+                    </svg>
+
+                    <p class="ingressou">Ingressou em (data)</p>
+            </a>
+            <ul class="acoeslista">
+                <li>Posts</li>
+                <li>Respostas</li>
+                <li>Destaques</li>
+                <li>Artigos</li>
+                <li>Mídia</li>
+                <li>Curtidas</li>
+            </ul>
+        
         </div>
-        <div id="comentarios">
-            <form id="comentario-form" method="post" action="{% url 'criarComentario' %}" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form">{{ form.as_p }}</div>
-                <button type="submit" class="button-coments" >Postar</button>
-            </form>
-        </div>
-        <div id="for-you">
-            {% for comentario in comentarios %}
-                <div class="user">
-                    <div id="img-info">
-                        <img src="#" alt="" id="user-foto" class="profile-img" width="35" height="35">
-                    </div>
-                    <p class="name" id="user-nome">{{ comentario.autor.username }}</p>
-                    <p class="username" id="arroba">@{{ comentario.autor.username }}</p>
-                    {% if comentario.imagem %}
-                        <img class="img-coment" src="{{ comentario.imagem.url }}" alt="Imagem do Comentário" />
-                    {% endif %}
-                    <p class="coment-form">{{ comentario.comentario }}</p>
-                    <p class="temp-post">· {{ comentario.tempo_desde_criacao }}</p>
-                </div>
-            {% endfor %}
+
+        <button type="button" id="button-editar" class="button-editar">Editar perfil</button>
     </section>
-    <div class="bordas"></div>
         
-
-
+    </section>
+    <div class="bordas">
+            
+    </div>
+    
     <script>
-
-        document.getElementById('comentario-form').onsubmit = function() {
-            // Recarrega a página após 100 milissegundos do envio do formulário
-            setTimeout(function() {
-                window.location.reload();
-            }, 100);
-        };
-
-        
         const moreBtn = document.querySelector('#moreBtn');
         const subItemsBox = document.querySelector('.sub-items-box');
         const overlay = document.querySelector('.overlay')
@@ -283,6 +333,32 @@
         overlay2.classList.remove('active');
         })
     
+    </script>
+
+    
+    <script>
+        document.getElementById("button-editar").addEventListener("click", function() {
+    var menu = document.getElementById("menuEditarPerfil");
+    var overlay = document.getElementById("overlay");
+    if (menu.style.display === "none" || menu.style.display === "") {
+        menu.style.display = "block";
+        overlay.style.display = "block"; // Exibir o overlay
+        document.body.classList.add("overlay-open"); // Adicionar classe ao body
+    } else {
+        menu.style.display = "none";
+        overlay.style.display = "none"; // Ocultar o overlay
+        document.body.classList.remove("overlay-open"); // Remover classe do body
+    }
+});
+
+    document.getElementById("fecharMenuBtn").addEventListener("click", function() {
+        var menu = document.getElementById("menuEditarPerfil");
+        var overlay = document.getElementById("overlay");
+        menu.style.display = "none";
+        overlay.style.display = "none"; // Ocultar o overlay
+        document.body.classList.remove("overlay-open"); // Remover classe do body
+});
+
     </script>
     
 

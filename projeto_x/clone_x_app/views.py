@@ -8,6 +8,9 @@ from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from .forms import ComentarioForm
 from django.views.generic import ListView
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from .forms import PerfilForm
+from .models import Perfil
 
 def home(request):
     posts = Comentario.objects.all()
@@ -93,6 +96,30 @@ class ComentarioList(ListView):
         context = super().get_context_data(**kwargs)
         context['form'] = ComentarioForm()
         return context
+
+@login_required
+def perfil(request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=perfil)
+    return render(request, 'clone_x_app/perfil.html', {'perfil': perfil, 'form': form})
+
+@login_required
+def upload_foto(request):
+    perfil, created = Perfil.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        form = PerfilForm(request.POST, request.FILES, instance=perfil)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+    else:
+        form = PerfilForm(instance=perfil)
+    return render(request, 'clone_x_app/perfil.html', {'form': form})
 
 
 
