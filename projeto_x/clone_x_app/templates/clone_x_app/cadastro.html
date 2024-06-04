@@ -72,8 +72,32 @@
                 <input type="password" id="cad" name="senha" required>
                 <label for="password" data-content="Senha"></label>
             </div>
+            <br>
+            <br>
+            <div class="profile-pic-wrapper">
+                <input type="file" id="selecionar-foto" style="display: none;" accept="image/*">
+                <label for="selecionar-foto">
+                    <img id="foto-placeholder" src="caminho_para_o_icone" alt="Selecionar foto">
+                </label>
+                <img id="foto-preview" src="#" alt="Foto selecionada">
+            </div>
+            <p class="perfilp">Foto de perfil</p>
             <input class="btn-cadastro" type="submit" value="Avançar">
         </form>
     </div>
+
+    <script>
+        document.getElementById('selecionar-foto').addEventListener('change', function() {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('foto-placeholder').src = e.target.result;
+                document.getElementById('foto-placeholder').style.display = 'none';
+                document.getElementById('foto-preview').style.display = 'block';
+                document.getElementById('foto-preview').src = e.target.result;
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
+
 </body>
 </html>

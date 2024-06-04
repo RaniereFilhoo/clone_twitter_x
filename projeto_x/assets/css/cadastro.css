@@ -336,3 +336,40 @@ h1 {
     background-color: #000;
     color: #d9d9d9;
 }
+
+.profile-pic-wrapper {
+    left: 40%;
+    right: 60%;
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #ddd;
+}
+
+.profile-pic-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.perfilp {
+    color: white;
+    position: relative;
+    left: 37.5%;
+    right: 62.5%;
+}
+
+#foto-placeholder {
+    width: 100px; 
+    height: 100px; 
+    cursor: pointer;
+}
+
+#foto-preview {
+    display: none;
+    width: 100px; 
+    height: 100px;
+}

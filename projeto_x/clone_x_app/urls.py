@@ -11,5 +11,8 @@ urlpatterns = [
     path('login/', views.logincopy_view, name='logincopy'),
     path('Create/', ComentarioCreateView.as_view(), name='criarComentario'),
     path('home', ComentarioList.as_view(), name='listaComentarios'),
+    path('profile/', views.profile, name='profile'),
+    path('update_profile/', views.update_profile, name='update_profile'),
+    
 ]
 

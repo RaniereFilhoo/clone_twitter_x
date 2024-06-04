@@ -1,9 +1,8 @@
 from django.db import models
-import math
 from django.utils import timezone
-from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
 from django.conf import settings
+from django.contrib.auth import get_user_model
+import math
 
 def get_default_user():
     User = get_user_model()
@@ -37,3 +36,14 @@ class Comentario(models.Model):
                 return "1 h"
             else:
                 return f"{horas} h"
+
+class Perfil(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    nome = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='fotos_usuarios/', null=True, blank=True)
+    
+    def foto_url(self):
+        if self.foto:
+            return self.foto.url
+        else:
+            return None
