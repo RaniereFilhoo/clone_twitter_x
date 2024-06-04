@@ -106,7 +106,7 @@
                 <a href="#" class="item-icon">
                     <ion-icon name="person-outline"></ion-icon>
                 </a>
-                <a href="#" class="item-link">Perfil</a>
+                <a href="{% url 'perfil'%}" class="item-link">Perfil</a>
             </li>
             <li class="nav-item" id="moreBtn">
                 <a href="#" class="item-icon">
@@ -220,10 +220,10 @@
                     </div>
                     <p class="name" id="user-nome">{{ comentario.autor.username }}</p>
                     <p class="username" id="arroba">@{{ comentario.autor.username }}</p>
+                    <p class="coment-form">{{ comentario.comentario }}</p>
                     {% if comentario.imagem %}
                         <img class="img-coment" src="{{ comentario.imagem.url }}" alt="Imagem do Comentário" />
                     {% endif %}
-                    <p class="coment-form">{{ comentario.comentario }}</p>
                     <p class="temp-post">· {{ comentario.tempo_desde_criacao }}</p>
                     <div>
                         <a class="tit" id="editar" href="{% url 'update' pk=comentario.id %}">Editar</a>
