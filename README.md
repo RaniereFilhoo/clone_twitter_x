@@ -5,4 +5,6 @@ Funcionalidades:
 - Criar conta
 - Entrar
 - Adicionar postagens com fotos e vídeos
+- Editar postagens
+- Apagar postagens
 - Adicionar e alterar a foto de perfil
